@@ -1,0 +1,25 @@
+{
+  "name": "sprint-planning",
+  "version": "1.0.0",
+  "description": "Electron application for creating projects, backlogs, and sprints.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanrussell/sprint-planning.git"
+  },
+  "keywords": [
+    "electron",
+    "javascript",
+    "sprint",
+    "kanban"
+  ],
+  "author": "Sean Russell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seanrussell/sprint-planning/issues"
+  },
+  "homepage": "https://github.com/seanrussell/sprint-planning#readme"
+}
