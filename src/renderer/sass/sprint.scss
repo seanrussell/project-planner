@@ -1,0 +1,19 @@
+@import 'variables.scss';
+
+.sprint {
+	> .row {
+		margin-bottom: 0;
+	}
+
+	button.update,
+	button.story-update {
+		background-color: $warning-color;
+		color: $white;
+	}
+
+	button.delete,
+	button.story-delete {
+		background-color: $error-color;
+		color: $white;
+	}
+}

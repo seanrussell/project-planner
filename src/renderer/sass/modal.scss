@@ -1,0 +1,53 @@
+@import 'variables.scss';
+
+div#theModal.modal {
+	height: 75% !important;
+
+	.modal-content {
+		.select-wrapper {
+			.select-dropdown {
+				li {
+					span {
+						color: $secondary-color;
+					}
+				}
+			}
+		}
+	}
+}
+
+.modal {
+	width: 75%;
+	height: 75%;
+
+	.modal-content {
+		height: 101%;
+
+		.datepicker-row .is-today .datepicker-day-button {
+			color: $secondary-color;
+		}
+
+		.datepicker-row .is-selected {
+			background-color: $primary-color;
+		}
+
+		.datepicker-date-display {
+			background-color: $primary-color;
+		}
+
+		.datepicker-footer {
+			margin-top: 36px;
+
+			.datepicker-cancel,
+			.datepicker-done {
+				color: $secondary-color;
+			}
+		}
+	}
+
+	.modal-footer {
+		.clear-btn {
+			background-color: $error-color;
+		}
+	}
+}

@@ -1,0 +1,17 @@
+@import 'variables.scss';
+
+.sprints {
+	.highlight {
+		text-transform: uppercase;
+
+		button.update {
+			background-color: $warning-color;
+			color: $white;
+		}
+
+		button.delete {
+			background-color: $error-color;
+			color: $white;
+		}
+	}
+}

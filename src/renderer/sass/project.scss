@@ -1,0 +1,17 @@
+@import 'variables.scss';
+
+.project {
+	> .row {
+		margin-bottom: 0;
+	}
+
+	button.update {
+		background-color: $warning-color;
+		color: $white;
+	}
+
+	button.delete {
+		background-color: $error-color;
+		color: $white;
+	}
+}

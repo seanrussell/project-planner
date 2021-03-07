@@ -1,0 +1,104 @@
+@import 'variables.scss';
+
+.board {
+	> .row {
+		margin-bottom: 0;
+	}
+
+	button.update {
+		background-color: $warning-color;
+		color: $white;
+	}
+
+	button.delete,
+	button.task-delete {
+		background-color: $error-color;
+		color: $white;
+	}
+
+	button.task-delete {
+		width: 20px;
+		height: 20px;
+		font-size: 0.5rem;
+	}
+
+	.stories {
+		.row.story-card {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.card-title {
+	.drag-handler {
+		cursor: move;
+		vertical-align: bottom;
+	}
+
+	.item-title {
+		font-size: 14px;
+		font-weight: 300;
+	}
+
+	.task-edit {
+		cursor: pointer;
+	}
+}
+
+.card-title.drag-component {
+	.drag-handler {
+		vertical-align: bottom;
+		margin-right: 3px;
+	}
+}
+
+.item-assigned {
+	font-size: 14px;
+	float: left;
+
+	.item-avatar {
+		display: inline-block;
+		overflow: hidden;
+		border-radius: 50%;
+		width: 20px;
+		height: 20px;
+		vertical-align: middle;
+	}
+}
+
+.item-work {
+	font-size: 14px;
+	float: right;
+}
+
+.kanban-item {
+	padding: 0;
+}
+
+.card {
+	.card-content {
+		padding: 10px 15px;
+
+		> .row {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.kanban-item {
+	.card {
+		margin-top: 0;
+
+		.card-content {
+			padding: 10px 15px;
+
+			> .row {
+				margin-bottom: 0;
+			}
+
+			.card-details {
+				margin-bottom: 8px;
+			}
+		}
+	}
+}
