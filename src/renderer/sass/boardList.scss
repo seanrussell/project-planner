@@ -1,0 +1,91 @@
+@import 'variables.scss';
+
+.boards {
+	.header {
+		h2 {
+			margin: 20px 0;
+			font-size: 30px;
+			text-transform: uppercase;
+		}
+
+		button.new-board {
+			margin: 20px 0;
+			background-color: $primary-color;
+			color: $white;
+		}
+
+		button.new-board:hover {
+			background-color: $light-gray;
+		}
+	}
+
+	.highlight {
+		text-transform: uppercase;
+
+		button.update {
+			background-color: $warning-color;
+			color: $white;
+		}
+
+		button.update:hover {
+			background-color: $light-gray;
+		}
+
+		button.delete {
+			background-color: $error-color;
+			color: $white;
+		}
+
+		button.delete:hover {
+			background-color: $light-gray;
+		}
+	}
+}
+
+.actions {
+	div#boardModal.modal {
+		height: 75% !important;
+
+		.modal-content {
+			.select-wrapper {
+				.select-dropdown {
+					li {
+						span {
+							color: $secondary-color;
+						}
+					}
+				}
+			}
+		}
+
+		.modal {
+			width: 75%;
+			height: 75%;
+
+			.modal-content {
+				height: 101%;
+
+				.datepicker-row .is-today .datepicker-day-button {
+					color: $secondary-color;
+				}
+
+				.datepicker-row .is-selected {
+					background-color: $primary-color;
+				}
+
+				.datepicker-date-display {
+					background-color: $primary-color;
+				}
+
+				.datepicker-footer {
+					margin-top: 36px;
+
+					.datepicker-cancel,
+					.datepicker-done {
+						color: $secondary-color;
+					}
+				}
+			}
+		}
+	}
+}

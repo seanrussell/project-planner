@@ -1,0 +1,43 @@
+@import 'variables.scss';
+
+.backlogs {
+	.header {
+		h2 {
+			margin: 20px 0;
+			font-size: 30px;
+			text-transform: uppercase;
+		}
+
+		button.new-backlog {
+			margin: 20px 0;
+			background-color: $primary-color;
+			color: $white;
+		}
+
+		button.new-backlog:hover {
+			background-color: $light-gray;
+		}
+	}
+
+	.highlight {
+		text-transform: uppercase;
+
+		button.update {
+			background-color: $warning-color;
+			color: $white;
+		}
+
+		button.update:hover {
+			background-color: $light-gray;
+		}
+
+		button.delete {
+			background-color: $error-color;
+			color: $white;
+		}
+
+		button.delete:hover {
+			background-color: $light-gray;
+		}
+	}
+}
