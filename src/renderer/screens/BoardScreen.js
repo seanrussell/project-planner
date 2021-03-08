@@ -311,7 +311,7 @@ const BoardScreen = {
               let createdTask = await addTask(task);
               
               
-              // Add event handler for task deletion
+              // Add event handler for task deletion button click
 
 
               M.toast({html: 'Task added successfully'});
