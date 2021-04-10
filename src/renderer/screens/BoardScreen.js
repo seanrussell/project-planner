@@ -34,6 +34,15 @@ const updateTasks = async (taskElems) => {
   const result = await updateTask(null, null, tasks, false);
 }
 
+const handleTaskDelete = (self) => {
+  console.log('DELETE TASK CLICKED');
+  console.log('ID: ', self.dataset.id);
+  document.getElementById(deleteModalTitle).innerText = 'Delete Task';
+  document.getElementById(recordId).value = self.dataset.id;
+  document.getElementById(recordType).value = 'task';
+  document.querySelector('#' + deleteModalContent).textContent = 'Are you sure you want to delete this task?';
+}
+
 const modalTitle = 'modalTitle';
 const deleteModalTitle = 'deleteModalTitle';
 const deleteModalContent = 'deleteModalContent';
@@ -198,12 +207,7 @@ const BoardScreen = {
     const taskDeleteBtns = document.querySelectorAll('.task-delete');
 
     for (let taskDeleteBtn of taskDeleteBtns) {
-      taskDeleteBtn.addEventListener('click', () => {
-        document.getElementById(deleteModalTitle).innerText = 'Delete Task';
-        document.getElementById(recordId).value = taskDeleteBtn.dataset.id;
-        document.getElementById(recordType).value = 'task';
-        document.querySelector('#' + deleteModalContent).textContent = 'Are you sure you want to delete this task?';
-      });
+      taskDeleteBtn.addEventListener('click', () => { handleTaskDelete(taskDeleteBtn) });
     }
 
     const updateBtns = document.querySelectorAll('.update');
@@ -309,14 +313,16 @@ const BoardScreen = {
               task['sortorder'] = targetBoard.getBoardElements(boardlane).length + 1;
               
               let createdTask = await addTask(task);
-              
-              
-              // Add event handler for task deletion button click
-
-
+              createdTask['id'] = createdTask._id;
+          
               M.toast({html: 'Task added successfully'});
-
+              
               targetBoard.addElement(boardlane, createdTask);
+              let newTask = targetBoard.findElement(createdTask.id);
+
+              // Add event handler for task deletion button click
+              const taskDeleteBtn = newTask.querySelector('.task-delete');
+              taskDeleteBtn.addEventListener('click', () => { handleTaskDelete(taskDeleteBtn) });
             }
         });
 

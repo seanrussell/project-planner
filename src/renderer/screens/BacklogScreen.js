@@ -1,5 +1,6 @@
 import '../sass/backlog.scss';
 
+import { nanoid } from 'nanoid';
 import { parseRequestUrl, formatDate, rerender } from '../utils';
 import { 
   getBacklog, 
@@ -187,7 +188,8 @@ const BacklogScreen = {
               created,
               effort,
               backlog: backlogId,
-              state
+              state,
+              uuid: 'story' + nanoid(10)
             };
 
             const id = document.getElementById(recordId).value;

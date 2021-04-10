@@ -6,6 +6,11 @@ const ProjectSchema = new mongoose.Schema({
     trim: true,
     required: [true, "Project name is required"]
   },
+  notes: {
+    type: String,
+    trim: true,
+    required: false
+  },
   created: {
     type: Date,
     default: Date.now

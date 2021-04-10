@@ -1,5 +1,6 @@
 import '../sass/project.scss';
 
+import marked from 'marked';
 import { parseRequestUrl, formatDate, rerender } from '../utils';
 import { getProject, updateProject, deleteProject, getBacklogs, getSprints } from '../api';
 import Modal from '../components/Modal';
@@ -12,6 +13,9 @@ const cancelBtn = 'cancelBtn';
 const confirmBtn = 'confirmBtn';
 const cancelDeleteBtn = 'cancelDeleteBtn';
 const confirmDeleteBtn = 'confirmDeleteBtn';
+const markdown = 'markdown';
+const htmlView = 'htmlView';
+const saveNotes = 'saveNotes';
 
 let project;
 
@@ -56,6 +60,21 @@ const ProjectScreen = {
           M.toast({html: 'Project deleted successfully'});
           document.location.hash = '/projects';
       });
+
+    document
+      .getElementById(saveNotes)
+      .addEventListener('click', async () => {
+          const notes = document.getElementById(markdown).value;
+          project.notes = notes;
+          await updateProject(project);
+          M.toast({html: 'Notes saved successfully'});
+          rerender(ProjectScreen);
+      });
+
+
+    document
+      .getElementById(htmlView)
+      .innerHTML = marked(project.notes, { sanitize: true });
   },
   render: async () => {
     const request = parseRequestUrl();
@@ -83,6 +102,38 @@ const ProjectScreen = {
               </div>
               <button data-target="theModal" data-id="${project._id}" data-name="${project.name}" data-created="${formatDate(new Date(project.created))}" class="update btn-floating modal-trigger"><i class="small material-icons">edit</i></button>
               <button data-target="deleteModal" data-id="${project._id}" class="delete btn-floating modal-trigger"><i class="small material-icons">delete</i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <div class="card-content">
+              <div class="row">
+                <div class="col s8">
+                  <div class="card-title">Project Notes</div>
+                </div>
+                <div class="col s4">
+                  <div class="right-align">
+                    <button id="saveNotes" class="waves-effect btn-floating save-notes" title="Save notes"><i class="material-icons">save</i></button>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s6">
+                  <div class="input-field">
+                    <textarea id="markdown" class="materialize-textarea">${project.notes}</textarea>
+                    <label for="markdown" class="active">Markdown</label>
+                  </div>
+                </div>
+                <div class="col s6">
+                  <div class="input-field">
+                    <div id="htmlView" class="rendered-html"></div>
+                    <label for="htmlView" class="active">HTML</label>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

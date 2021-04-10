@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(
-      "mongodb+srv://<db>?retryWrites=true&w=majority",
+      "mongodb+srv://sean1234:sean1234@defaultcluster.wy8lv.mongodb.net/projectplanner?retryWrites=true&w=majority",
       {
         useNewUrlParser: true,
         useCreateIndex: true,

@@ -22,9 +22,17 @@
 	content: '';
 }
 
-.kanban-container .card-content .card-title i.tiny {
+.kanban-item .card-content .card-title i.tiny {
 	font-size: 12px;
 	line-height: 20px;
+}
+
+.kanban-item .card-content .card-title .task-delete {
+	background-color: #c66a62;
+	color: #fff;
+	width: 20px;
+	height: 20px;
+	font-size: 0.5rem;
 }
 
 .kanban-board {
