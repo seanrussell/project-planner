@@ -314,7 +314,14 @@ const BoardScreen = {
               
               let createdTask = await addTask(task);
               createdTask['id'] = createdTask._id;
-          
+              createdTask['drop'] = function(el) { 
+                const b = document.getElementById(el.dataset.eid).closest('.kanban-board');
+                moveTask(el.dataset.eid, b.dataset.id);
+                const tasksInLane = b.querySelectorAll('.kanban-item');
+                sortTasks(tasksInLane);
+                updateTasks(tasksInLane);
+              }
+              
               M.toast({html: 'Task added successfully'});
               
               targetBoard.addElement(boardlane, createdTask);
